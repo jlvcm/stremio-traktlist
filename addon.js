@@ -33,7 +33,7 @@ const manifest = {
 		}
 	  ]}],
 	resources: ['catalog'],
-	types: ['movies','series'],
+	types: ['movie','series'],
 	name: 'Trakt Top',
 	description: 'trakt catalog list by most watched/collected',
 	idPrefixes: [

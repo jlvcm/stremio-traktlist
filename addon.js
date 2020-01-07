@@ -1,4 +1,4 @@
-const { addonBuilder } = require("stremio-addon-sdk")
+const { addonBuilder } = require('stremio-addon-sdk')
 const cheerio = require('cheerio')
 const request = require('request')
 const package = require('./package.json')
@@ -16,28 +16,28 @@ const cache = {
 }
 
 const manifest = {
-	id: "community.traktlist",
+	id: 'community.traktlist',
 	logo: 'https://trakt.tv/assets/logos/header@2x-09f929ba67b0964596b359f497884cd9.png.webp',
 	version: package.version,
-	catalogs: [{'type':'movie','id':'traktlist','name':'Trakt List',"extra": [
+	catalogs: [{'type':'movie','id':'traktlist','name':'Trakt Top','extra': [
 		{
-		  name: "genre",
+		  name: 'genre',
 		  options: Object.keys(trakttypes),
 		  isRequired: false
 		}
-	  ]},{type:'series',id:'traktlist',name:'Trakt List',extra: [
+	  ]},{type:'series',id:'traktlist',name:'Trakt Top',extra: [
 		{
-		  name: "genre",
+		  name: 'genre',
 		  options: Object.keys(trakttypes),
 		  isRequired: false
 		}
 	  ]}],
-	resources: ["catalog"],
-	types: ['Movie','Series'],
-	name: "Trakt List",
-	description: "trakt catalog list by most watched/collected",
+	resources: ['catalog'],
+	types: ['movies','series'],
+	name: 'Trakt Top',
+	description: 'trakt catalog list by most watched/collected',
 	idPrefixes: [
-		"tt"
+		'tt'
 	]
 }
 const builder = new addonBuilder(manifest)

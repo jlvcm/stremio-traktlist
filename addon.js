@@ -2,7 +2,7 @@ const { addonBuilder } = require("stremio-addon-sdk")
 const cheerio = require('cheerio')
 const request = require('request')
 const package = require('./package.json')
-const traktvtypes = {'Trending':'trending','Popular':'popular','Watched - Week':'watched/weekly','Watched - Month':'watched/monthly','Watched - Year':'watched/yearly','Watched - All time':'watched/all'
+const trakttypes = {'Trending':'trending','Popular':'popular','Watched - Week':'watched/weekly','Watched - Month':'watched/monthly','Watched - Year':'watched/yearly','Watched - All time':'watched/all'
 ,'Collected - Week':'collected/weekly','Collected - Month':'collected/monthly','Collected - Year':'collected/yearly','Collected - All time':'collected/all'}
 
 const endpoint = 'https://trakt.tv/'
@@ -16,26 +16,27 @@ const cache = {
 }
 
 const manifest = {
-	"id": "community.traktvlist",
+	id: "community.traktlist",
+	logo: 'https://trakt.tv/assets/logos/header@2x-09f929ba67b0964596b359f497884cd9.png.webp',
 	version: package.version,
-	"catalogs": [{'type':'movie','id':'traktvlist','name':'Traktv List',"extra": [
+	catalogs: [{'type':'movie','id':'traktlist','name':'Trakt List',"extra": [
 		{
-		  "name": "genre",
-		  "options": Object.keys(traktvtypes),
-		  "isRequired": false
+		  name: "genre",
+		  options: Object.keys(trakttypes),
+		  isRequired: false
 		}
-	  ]},{'type':'series','id':'traktvlist','name':'Traktv List',"extra": [
+	  ]},{type:'series',id:'traktlist',name:'Trakt List',extra: [
 		{
-		  "name": "genre",
-		  "options": Object.keys(traktvtypes),
-		  "isRequired": false
+		  name: "genre",
+		  options: Object.keys(trakttypes),
+		  isRequired: false
 		}
 	  ]}],
-	"resources": ["catalog"],
-	"types": ['Movie','Series'],
-	"name": "Traktv List",
-	"description": "Traktv catalog list",
-	"idPrefixes": [
+	resources: ["catalog"],
+	types: ['Movie','Series'],
+	name: "Trakt List",
+	description: "trakt catalog list by most watched/collected",
+	idPrefixes: [
 		"tt"
 	]
 }
@@ -125,7 +126,7 @@ https://api.themoviedb.org
 builder.defineCatalogHandler(function(args, cb) {
 	// filter the dataset object and only take the requested type
 
-	const cat = (args.extra || {}).genre ? traktvtypes[args.extra.genre] : 'trending';
+	const cat = (args.extra || {}).genre ? trakttypes[args.extra.genre] : 'trending';
 	const start = (args.extra || {}).skip ? Math.round(args.extra.skip / 37) + 1 : 1
 	const type = args.type=='movie'?'movies':'shows'
 

@@ -1,7 +1,7 @@
 {
-	"name": "stremio-addon-traktvlist",
-	"version": "0.0.1",
-	"description": "Traktv catalog list",
+	"name": "stremio-addon-traktlist",
+	"version": "0.0.2",
+	"description": "Trakt catalog list",
 	"scripts": {
 		"start": "node server.js"
 	},

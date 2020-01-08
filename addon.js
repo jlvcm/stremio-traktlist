@@ -58,8 +58,8 @@ function getIMDB(url){
 						'id':'tt'+IMDB,
 						'image':image
 					}
-					resolve(url);
 				}
+				resolve(url);
 			}else{
 				resolve(url);
 			}
@@ -86,7 +86,6 @@ function getMovies(page,type='movies',cat=false){
 						imdbFetch.push(getIMDB(href));
 					}
 					missingIMDB.push(metas.length);
-					
 					metas.push({
 						id:imdb,
 						name:$item.find('h3').text().replace(/\"/g,''),

@@ -2,16 +2,14 @@
 	"name": "stremio-addon-traktlist",
 	"version": "0.0.2",
 	"description": "Trakt catalog list",
-	"engines": { 
-		"node": "12.x" 
+	"engines": {
+		"node": "12.x"
 	},
 	"scripts": {
 		"start": "node server.js"
 	},
 	"dependencies": {
-		"cheerio": "^1.0.0-rc.3",
 		"request": "^2.88.0",
-		"stremio-addon-sdk": "1.1.x",
-		"windows-1252": "^1.0.0"
+		"stremio-addon-sdk": "^1.1.4"
 	}
 }

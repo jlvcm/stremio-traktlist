@@ -1,0 +1,7 @@
+{
+  "name": "Stremio Trakt Top",
+  "description": "trakt catalog list by most watched/collected",
+  "repository": "https://github.com/jlvcm/stremio-traktlist",
+  "logo": "https://trakt.tv/assets/logos/header@2x-09f929ba67b0964596b359f497884cd9.png.webp",
+  "keywords": ["node", "stremio", "trakt"]
+}
